@@ -17,13 +17,7 @@ variable "instance_config_id" {
   description = "AS Configuration ID created manually from the Huawei Cloud Console"
   type        = string
 }
-
-veriable "db_name" {
-  description = ""
-  type = string
-}
-veriable "db_username" = {
-  description = ""
+variable "db_name" {
   type = string
 }
 variable "db_password" {

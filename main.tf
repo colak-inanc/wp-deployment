@@ -47,7 +47,7 @@ resource "huaweicloud_rds_instance" "wordpress" {
     data.huaweicloud_availability_zones.myaz.names[0],
     data.huaweicloud_availability_zones.myaz.names[1]
   ]           
-  ha_replication_mode = "async"            
+  ha_replication_mode = "semisync"            
 
   vpc_id              = huaweicloud_vpc.vpc.id
   subnet_id           = huaweicloud_vpc_subnet.subnet.id
@@ -67,7 +67,6 @@ resource "huaweicloud_rds_instance" "wordpress" {
   security_group_id = huaweicloud_networking_secgroup.secgroup.id
 }
 
-# Load Balancer
 resource "huaweicloud_elb_loadbalancer" "wordpress" {
   name              = "wordpress-lb"
   availability_zone = [data.huaweicloud_availability_zones.myaz.names[0]]
