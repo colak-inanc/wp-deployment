@@ -42,7 +42,7 @@ resource "huaweicloud_compute_instance" "wordpress" {
 
 resource "huaweicloud_rds_instance" "wordpress" {
   name                = "wordpress-db"
-  flavor              = "rds.mysql.n1.large.4"
+  flavor              = "rds.mysql.x1.xlarge.2.ha"
   availability_zone   = [
     data.huaweicloud_availability_zones.myaz.names[0],
     data.huaweicloud_availability_zones.myaz.names[1]
@@ -60,7 +60,7 @@ resource "huaweicloud_rds_instance" "wordpress" {
   }
 
   volume {
-    type = "ULTRAHIGH"
+    type = "CLOUDSSD"
     size = 40
   }
   
